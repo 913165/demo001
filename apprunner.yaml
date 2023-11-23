@@ -1,7 +1,7 @@
 version: 1.0
 runtime:
   language: java
-  runtimeVersion: 11
+  runtimeVersion: 17
 
 build:
   commands:
