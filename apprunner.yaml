@@ -1,7 +1,7 @@
 version: 1.0
 runtime:
-  language: java
-  runtimeVersion: 17
+  language: corretto11
+  runtimeVersion: 11.0.21.9.1
 
 build:
   commands:
