@@ -1,10 +1,8 @@
 version: 1.0
-runtime:
-  language: corretto11
-  runtimeVersion: 11.0.21.9.1
-
+runtime: corretto11 
 build:
   commands:
-    - mvn clean package -DskipTests=true # Adjust the Maven command according to your build process
-
-startCommand: java -jar target/your-application.jar # Adjust the JAR file name accordingly
+    build:
+      - mvn clean package -DskipTests=true
+run: 
+  command:  java -jar target/your-application.jar
