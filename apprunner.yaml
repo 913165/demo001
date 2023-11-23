@@ -1,0 +1,10 @@
+version: 1.0
+runtime:
+  language: java
+  runtimeVersion: 11
+
+build:
+  commands:
+    - mvn clean package -DskipTests=true # Adjust the Maven command according to your build process
+
+startCommand: java -jar target/your-application.jar # Adjust the JAR file name accordingly
