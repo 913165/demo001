@@ -5,7 +5,7 @@ FROM openjdk:11-jre-slim
 WORKDIR /app
 
 # Copy the packaged Spring Boot application JAR file into the container
-COPY target/apprunner001-0.0.1-SNAPSHOT.jar /app/apprunner001-0.0.1-SNAPSHOT.jar
+COPY /target/apprunner001-0.0.1-SNAPSHOT.jar /app/apprunner001-0.0.1-SNAPSHOT.jar
 
 # Expose the port that the Spring Boot application uses
 EXPOSE 8080
