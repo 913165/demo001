@@ -11,6 +11,13 @@ public class HelloController {
             return "Hello World";
         }
 
+    @GetMapping("/")
+    public String welcome(){
+        System.out.println("Hello World from aws apprunner logs console");
+
+        return "Hello World from spring boot";
+    }
+
         @GetMapping("/helloapi")
         public String sayHelloFrontend(){
             System.out.println("Hello World from aws apprunner logs console");
