@@ -1,14 +1,14 @@
-# Use a base image with OpenJDK installed
-FROM openjdk:11-jre-slim
+FROM maven:3-eclipse-temurin-17-alpine as builder
 
-# Set the working directory in the container
+# Copy local code to the container image.
 WORKDIR /app
+COPY pom.xml .
+COPY src ./src
 
-# Copy the packaged Spring Boot application JAR file into the container
-COPY target/your-application.jar /app/apprunner001-0.0.1-SNAPSHOT.jar
+RUN mvn package -DskipTests
 
-# Expose the port that the Spring Boot application uses
-EXPOSE 8080
+FROM eclipse-temurin:17.0.9_9-jre-alpine
 
-# Define the command to run your application when the container starts
-CMD ["java", "-jar", "apprunner001-0.0.1-SNAPSHOT.jar"]
+COPY --from=builder /app/target/spring-web-sample-*.jar /spring-web-sample.jar
+
+CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/spring-web-sample.jar"]
