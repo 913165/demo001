@@ -5,6 +5,8 @@ WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 
+RUN chmod +x mvnw
+
 RUN mvn package -DskipTests
 
 FROM eclipse-temurin:17.0.9_9-jre-alpine
